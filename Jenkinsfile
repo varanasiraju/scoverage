@@ -3,7 +3,9 @@ pipeline {
     stages { 
         stage('compile-package') {
            steps {
-              sh "${sbtHome} package"
+              def sbtHome = tool name: 'sbt', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'
+              sh "${sbtHome}/bin/sbt compile"
+
              }
         }
     }
