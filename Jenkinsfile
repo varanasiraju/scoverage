@@ -3,8 +3,7 @@ pipeline {
     stages { 
         stage('compile-package') {
            steps {
-              sh label: '', script: 'sbt compile'
-
+              sh "${sbtHome} package"
              }
         }
     }
